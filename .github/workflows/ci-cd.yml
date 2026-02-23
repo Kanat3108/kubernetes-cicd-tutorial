@@ -25,7 +25,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/kanat3108/kubernetes-cicd-tutorial:latest
-            ghcr.io/Kanat3108/kubernetes-cicd-tutorial:${{ github.sha }}
+            ghcr.io/kanat3108/kubernetes-cicd-tutorial:${{ github.sha }}
       - name: Update GitOps repository
         shell: bash
         env:
