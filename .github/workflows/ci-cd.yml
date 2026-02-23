@@ -7,6 +7,8 @@ on:
 jobs:
   build-and-push:
     runs-on: self-hosted
+    env:
+      IMAGE_NAME: ghcr.io/kanat3108/kubernetes-cicd-tutorial
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -24,8 +26,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
       - name: Update GitOps repository
         shell: bash
         env:
